@@ -1,12 +1,6 @@
-<html>
-    <head><title></title>
-{STYLESHEETS}
-{CRMCSS}
-{JQUERY}
-{JQUERYUI}
-{THEME} 
+
     <script type="text/javascript" src="{CRMURL}inc/dokument.js"></script>
-{JAVASCRIPTS}
+
     <script language="JavaScript">
     <!--
     var serreg;
@@ -50,23 +44,16 @@
 
     //-->
     </script>
-<body onLoad="dateibaum('left','/{Q}{customernumber}/{PID}'), hidelinks(0) ;">
-{PRE_CONTENT}
-{START_CONTENT}
-<p class="listtop">.:detailview:. {FAART}</p>
+
+<p class="ui-state-highlight ui-corner-all" style="margin-top: 0.7em; padding: 0.6em;">.:detailview:. {FAART}</p>
 <form name="firma4" enctype='multipart/form-data' action="{action}" method="post">
 <input type="hidden" name="pid" value="{PID}">
 <input type="hidden" name="fid" value="{FID}">
 <input type="hidden" name="Q" value="{Q}">
 <!--div style="position:absolute; top:5.4em; left:0.2em;  width:42em;"-->
-<div id='menubox2'>
-    <button name="{Link1}">.:Custombase:.</button>
-    <button name="{Link2}">.:Contacts:.  </button>
-    <button name="{Link3}">.:Sales:.     </button>
-    <button name="{Link4}">.:Documents:. </button>
-</div>
+
 <!--span style="position:absolute; left:0.2em; top:7.2em; width:99%; height:90%;"-->
-<span id='contentbox'>
+<span class='contentbox'>
 <br>
 <!-- Hier beginnt die Karte  ------------------------------------------->
 <span style="float:left; width:40%; height:90%;  text-align:center; padding:2px; border: 1px solid lightgray; border-bottom: 0px;">
@@ -175,6 +162,4 @@
 
 <!-- Hier endet die Karte ------------------------------------------->
 </span>
-{END_CONTENT}
-</body>
-</html>
+

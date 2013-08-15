@@ -183,6 +183,14 @@
     }
     $(document).ready(
         function(){
+          
+            $( "#main_tabs" ).tabs({
+                beforeLoad: function( event, ui ) {
+                    ui.jqXHR.error(function() {
+                        ui.panel.html(".:Couldn't load this tab.:." );
+                    });
+                }       
+            });
             $("#shipleft").click(function(){ nextshipto('-'); })
             $("#shipright").click(function(){ nextshipto('+'); })
             nextshipto('o'); 
@@ -205,18 +213,18 @@
                 });
             //var index = $('#fasubmenu a[href="#{kdviewli}"]').parent().index();
             //$("#fasubmenu").tabs("option", "active",  index);
-            $(function() {
-                $( "#right_tabs" ).tabs({
-                    cache: true, //helpful?
-                    active: {kdviewre},
-                    beforeLoad: function( event, ui ) {
-                        ui.jqXHR.error(function() {
-                        ui.panel.html(
-                            ".:Couldn't load this tab.:." );
-                        });
-                    }
-                });
+
+            $( "#right_tabs" ).tabs({
+                cache: true, //helpful?
+                active: {kdviewre},
+                beforeLoad: function( event, ui ) {
+                    ui.jqXHR.error(function() {
+                    ui.panel.html(
+                        ".:Couldn't load this tab.:." );
+                    });
+                }
             });
+            
             $("#dialogwin").dialog({
                 autoOpen: false,
                 show: {
@@ -241,23 +249,27 @@
 <body onLoad=" showCall(0);">
 {PRE_CONTENT}
 {START_CONTENT}
-<p class="listtop">.:detailview:. {FAART} <span title=".:important note:.">{Cmsg}&nbsp;</span></p>
-<br>
-<div id='menubox1' >
+<div id="main_tabs">
+    <ul>
+        <li><a href="#main_tab-1">.:Custombase:.</a></li>
+        <li><a href="firma2.php">.:contact:.</a></li>
+        <li><a href="firma3.php">.:Sales:.</a></li>
+        <li><a href="firma4.php">.:Documents:.</a></li>
+    </ul>
+
+ <div id="main_tab-1">
+<p class="ui-state-highlight ui-corner-all" style="margin-top: 0.7em; padding: 0.6em;">.:detailview:. {FAART} <span title=".:important note:.">{Cmsg}&nbsp;</span></p>
+
+<div class='menubox1' >
     <form>
-    <span style="float:left;" valign="bottom">
-        <button name="firma1.php?Q={Q}&id={FID}">.:Custombase:.</button>
-        <button name="firma2.php?Q={Q}&fid={FID}">.:Contacts:.</button>
-        <button name="firma3.php?Q={Q}&fid={FID}">.:Sales:.</button>
-        <button name="firma4.php?Q={Q}&fid={FID}">.:Documents:.</button>
-    </span>
-    <span style="float:left; vertical-alig:bottom">
-        <select style="visibility:{chelp}" name="kdhelp" id="kdhelp" style="margin-top:0.5em;" onChange="KdHelp()">
+
+    <span style="float:left;">
+        <select style="visibility:{chelp}" name="kdhelp" id="kdhelp" onChange="KdHelp()">
 <!-- BEGIN kdhelp -->
         <option value="{cid}">{cname}</option>
 <!-- END kdhelp -->
         </select>
-        <select id="actionmenu" onchange="doLink();" style="margin-top:0.5em;">
+        <select id="actionmenu" onchange="doLink();" >
             <option>Aktionen</option>
             <option value='firmen3.php?Q={Q}&id={FID}&edit=1'>.:edit:.</option>
             <option value='timetrack.php?tab={Q}&fid={FID}&name={Fname1}'>.:timetrack:.</option>
@@ -270,15 +282,17 @@
             <option value='onClick:invoice'>.:invoice:. .:develop:.</option>
         </select>
     </span>
-    <span style="float:left; padding-left:3em; visibility:{zeige_tools};" >
+    
+    </form>
+</div>
+<div class="toolbox">
+<span style="float:left;  visibility:{zeige_tools};" >
         <img src="tools/rechner.png" onClick="toolwin('tools/Rechner.html')" title=".:simple calculator:." style="margin-bottom:1.3em;"> &nbsp;
         <img src="tools/notiz.png" onClick="toolwin('postit.php?popup=1')" title=".:postit notes:." style="margin-bottom:1.3em;"> &nbsp;
         <img src="tools/kalender.png" onClick="toolwin('tools/kalender.php?Q={Q}&id={FID}')" title=".:calender:." style="margin-bottom:1.3em;"> &nbsp;
         <a href="javascript:void(s=prompt('.:ask leo:.',''));if(s)leow=open('http://dict.leo.org/?lp=ende&search='+escape(s),'LEODict','width=750,height=550,scrollbars=yes,resizeable=yes');if(leow)leow.focus();"><img src="tools/leo.png" title="LEO .:english/german:." border="0" style="margin-bottom:1.3em;"></a> &nbsp;
     </span>
-    </form>
 </div>
-
 <form action="../oe.pl" id="oe" method="post" name="oe">
 	<input type="hidden" name="action" value="add">
 	<input type="hidden" name="vc" value="{CuVe}">
@@ -286,7 +300,7 @@
 	<input type="hidden" name="action_update" value="Erneuern" id="update_button">
 	<input type="hidden" name="{CuVe}_id" value="{FID}">
 </form>
-<div id='contentbox' style="padding-top:2em;" >
+<div class="contentbox" >
     <div style="float:left; width:45em; height:37em; text-align:center; border: 1px solid lightgray;" >
         <div class="gross" style="float:left; width:55%; height:25em; text-align:left; border: 0px solid black; padding:0.2em;" >
             <span class="fett">{Fname1}</span><br />
@@ -447,7 +461,12 @@
 		</div>
 	</div>
 </div>
+</div>
+</div>
+
 <div id="dialogwin"></div>
+   </div>
+   
 {END_CONTENT}
 </body>
 </html>

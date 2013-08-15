@@ -1,12 +1,3 @@
-<html>
-	<head><title></title>
-{STYLESHEETS}
-{CRMCSS}
-{JQUERY}
-{JQUERYUI}
-{THEME}
-{JQTABLE}
-{JAVASCRIPTS}
 	<script language="JavaScript">
 	<!--
 	function showM (month) {
@@ -31,17 +22,10 @@
             });
         })
 	</script>
-<body>
-{PRE_CONTENT}
-{START_CONTENT}
-<p class="listtop">.:detailview:. {FAART}</p>
-<div id="menubox2">
-    <button name="{Link1}">.:Custombase:.</button>
-    <button name="{Link2}">.:Contacts:.</button>
-    <button name="{Link3}">.:Sales:.</button>
-    <button name="{Link4}">.:Documents:.</button>
-</div>
-<span id='contentbox' >
+
+<p class="ui-state-highlight ui-corner-all" style="margin-top: 0.7em; padding: 0.6em;">.:detailview:. {FAART}</p>
+
+<span class='contentbox' >
 <!-- Hier beginnt die Karte  ------------------------------------------->
 <div style="position:absolute; left:0px; top:1.5em; width:35em; border:1px solid lightgray">
 	<span class="fett">{Name} &nbsp; {kdnr}</span><br />
@@ -85,6 +69,3 @@
 </div>
 <!-- Hier endet die Karte ------------------------------------------->
 </span>
-{END_CONTENT}
-</body>
-</html>

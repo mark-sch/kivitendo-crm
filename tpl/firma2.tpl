@@ -1,12 +1,4 @@
-<html>
-        <head><title></title>
-{STYLESHEETS}
-{CRMCSS}
-{JQUERY}
-{JQUERYUI}
-{THEME}
-{JQTABLE}
-{JAVASCRIPTS}
+
     <script language="JavaScript">
     <!--
         function showItem(id) {
@@ -204,34 +196,30 @@
     });
 
     </script>
-<body>
-{PRE_CONTENT}
-{START_CONTENT}
-<p class="listtop" >.:detailview:. {FAART} <span title=".:important note:.">{Cmsg}</span></p>
-<div id="menubox1">
-    <span style="float:left;" class="top1">
-    <button name="Link1">.:Custombase:.</button>
-    <button name="Link2">.:Contacts:.</button>
-    <button name="Link3">.:Sales:.</button>
-    <button name="firma4.php?Q={Q}&fid={FID}&pid=">.:Documents:.</button>
+
+<p class="ui-state-highlight ui-corner-all" style="margin-top: 0.7em; padding: 0.6em;" >.:detailview:. {FAART} <span title=".:important note:.">{Cmsg}</span></p>
+<div class="menubox1">
+    <span style="float:left;" >
+
     <select style="visibility:{chelp}" id='kdhelp' name="kdhelp" onChange="KdHelp()">
 <!-- BEGIN kdhelp -->
         <option value="{cid}">{cname}</option>
 <!-- END kdhelp -->
     </select>
     </span>
-    <span style="float:left; padding-left:12em;  visibility:{tools};">
+
+</div>
+<div class="toolbox">
+    <span style="float:left; visibility:{tools};">
     <img src="tools/rechner.png"  onClick="toolwin('tools/Rechner.html',0)" title=".:simple calculator:."> &nbsp;
     <img src="tools/notiz.png"  onClick="toolwin('postit.php?popup=1',0)" title=".:postit notes:."> &nbsp;
     <img src="tools/kalender.png"  onClick="toolwin('tools/kalender.php?Q=P&id=',1)" title=".:calender:."> &nbsp;
     <a href="javascript:void(s=prompt('.:ask leo:.',''));if(s)leow=open('http://dict.leo.org/?lp=ende&search='+escape(s),'LEODict','width=750,height=550,scrollbars=yes,resizeable=yes');if(leow)leow.focus();"><img src="tools/leo.png"  title="LEO .:english/german:." border="0"></a> &nbsp;
     </span>
 </div>
-<!--span style="position:absolute; left:0.2em; top:7.2em; width:99%;" -->
-<span id='contentbox' >
-<br>
-<!-- Beginn Code ------------------------------------------->
-<div style="float:left; width:45em; height:37em;  border: 1px solid lightgray;" >
+
+<div class='contentbox' >
+    <div style="float:left; width:45em; height:37em;  border: 1px solid lightgray;" >
         <div style="float:left; width:45em; height:4.5em; text-align:left; border-bottom: 1px solid lightgray;">
             <form name="contact">
             <span class="fett" >
@@ -304,8 +292,6 @@
         </div>
 </div>
 <div id="dialogwin"></div>
-<!-- End Code ------------------------------------------->
-</span>
-{END_CONTENT}
-</body>
-</html>
+
+</div>
+
