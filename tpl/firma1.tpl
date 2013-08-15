@@ -252,9 +252,9 @@
 <div id="main_tabs">
     <ul>
         <li><a href="#main_tab-1">.:Custombase:.</a></li>
-        <li><a href="firma2.php">.:contact:.</a></li>
-        <li><a href="firma3.php">.:Sales:.</a></li>
-        <li><a href="firma4.php">.:Documents:.</a></li>
+        <li><a href="firma2.php?Q={Q}&fid={FID}">.:contact:.</a></li>
+        <li><a href="firma3.php?Q={Q}&fid={FID}">.:Sales:.</a></li>
+        <li><a href="firma4.php?Q={Q}&fid={FID}">.:Documents:.</a></li>
     </ul>
 
  <div id="main_tab-1">
@@ -303,7 +303,7 @@
 <div class="contentbox" >
     <div style="float:left; width:45em; height:37em; text-align:center; border: 1px solid lightgray;" >
         <div class="gross" style="float:left; width:55%; height:25em; text-align:left; border: 0px solid black; padding:0.2em;" >
-            <span class="fett">{Fname1}</span><br />
+            <span class="fett">{Fname1}&nbsp;&nbsp;  </span><br />
             {Fdepartment_1} {Fdepartment_2}<br />
             {Strasse}<br />
             <span class="mini">&nbsp;<br /></span>
@@ -319,7 +319,7 @@
             &nbsp;<a href="{Internet}" target="_blank">{Internet}</a>
         </div>
         <div style="float:left; width:43%; height:25em; text-align:right; border: 0px solid black; padding:0.2em;">
-            <span valign='top'><span class="fett">{kdnr}</span> <img src="image/kreuzchen.gif" title=".:locked address:." style="visibility:{verstecke};" > {verkaeufer}
+            <span valign='top'> <span class="fett">.:KdNr:.: {kdnr}</span><img src="image/kreuzchen.gif" title=".:locked address:." style="visibility:{verstecke};" > {verkaeufer}
             {IMG}<br /></span>
             <br class='mini'>
                {ANGEBOT_BUTTON}

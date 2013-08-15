@@ -27,9 +27,11 @@
 
 <span class='contentbox' >
 <!-- Hier beginnt die Karte  ------------------------------------------->
-<div style="position:absolute; left:0px; top:1.5em; width:35em; border:1px solid lightgray">
-	<span class="fett">{Name} &nbsp; {kdnr}</span><br />
-	{Plz} {Ort}
+<div style="position:absolute; left:0px; width:35em; border:1px solid lightgray">
+	<span class="fett" >
+            &nbsp;{Name} &nbsp; &nbsp; .:KdNr:.: {kdnr}<br />
+            &nbsp;{Fdepartment_1}<br />
+            &nbsp;{Plz} {Ort} </span>
 </div>
 <span style="position:absolute; left:38em; top:2.1em;">[<a href="opportunity.php?Q={Q}&fid={FID}">.:Opportunitys:.</a>]</span>
 <div style="position:absolute; left:1em; top:5em; text-align:center;" class="normal">

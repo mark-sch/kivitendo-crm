@@ -11,10 +11,10 @@
     $fa  = getFirmenStamm($fid,true,$Q);
     if ( isset($_GET['linlog']) ) { $linlog = '&linlog=0'; $ll = true; }
     else { $linlog = '&linlog=1'; $ll = false; }
-    $link1 = "firma1.php?Q=$Q&id=$fid";
-    $link2 = "firma2.php?Q=$Q&fid=$fid";
-    $link3 = "firma3.php?Q=$Q&fid=$fid".$linlog;
-    $link4 = "firma4.php?Q=$Q&fid=$fid";
+    //$link1 = "firma1.php?Q=$Q&id=$fid";
+    //$link2 = "firma2.php?Q=$Q&fid=$fid";
+    //$link3 = "firma3.php?Q=$Q&fid=$fid".$linlog;
+    //$link4 = "firma4.php?Q=$Q&fid=$fid";
     $name  = $fa['name'];
     $plz   = $fa['zipcode'];
     $ort   = $fa['city'];
@@ -44,23 +44,24 @@
     }
     doHeader($t);
     $t->set_var(array(
-            'Q'       => $Q,
-            'FAART'   => ($Q=='C')?'.:Customer:.':'.:Vendor:.',       //"Kunde":"Lieferant",
-            'FID'     => $fid,
-            'kdnr'    => $fa['nummer'],
-            'Link1'   => $link1,
-            'Link2'   => $link2,
-            'Link3'   => $link3,
-            'Link4'   => $link4,
-            'Name'    => $name,
-            'Plz'     => $plz,
-            'Ort'     => $ort,
-            'IMG'     => $IMG,
-            'JAHR'    => $jahr,
-            'JAHRV'   => $JahrV,
-            'JAHRZ'   => $JahrZ,
-            'JAHRVTXT' => ($JahrV>0)?'.:later:.':'',
-            'Monat'   => $monat
+            'Q'             => $Q,
+            'FAART'         => ($Q=='C')?'.:Customer:.':'.:Vendor:.',       //"Kunde":"Lieferant",
+            'FID'           => $fid,
+            'kdnr'          => $fa['nummer'],
+            //'Link1'       => $link1,
+            //'Link2'   => $link2,
+            //'Link3'   => $link3,
+            //'Link4'   => $link4,
+            'Name'          => $name,
+            'Fdepartment_1' => $fa['department_1'],
+            'Plz'           => $plz,
+            'Ort'           => $ort,
+            'IMG'           => $IMG,
+            'JAHR'          => $jahr,
+            'JAHRV'         => $JahrV,
+            'JAHRZ'         => $JahrZ,
+            'JAHRVTXT'      => ($JahrV>0)?'.:later:.':'',
+            'Monat'         => $monat
             ));
     if ($re) {
         $t->set_block('fa1','Liste','Block');
