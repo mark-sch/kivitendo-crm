@@ -1,3 +1,6 @@
+{JQUERY}
+{JQUERYUI}
+{THEME}
 
     <script language="JavaScript">
     <!--
@@ -18,19 +21,9 @@
             pid = $('#liste option:selected').val();
             F1=open("showNote.php?Q={Q}&pid="+pid,"Notes","width=400, height=400, left=100, top=50, scrollbars=yes");
         }
-        function vcard(){
-            pid = $('#liste option:selected').val();
-            document.location.href="vcardexp.php?Q={Q}&pid="+pid;
-        }        
-        function cedit(ed){                
-            pid=false;
-            if (ed) pid = $('#liste option:selected').val();
-            document.location.href="personen3.php?id="+pid+"&edit="+ed+"&Quelle={Q}&fid={FID}";
-        }
-        function sellist(){                
-            pid = $('#liste option:selected').val();
-            document.location.href="personen1.php?fid={FID}&Quelle={Q}";
-        }
+       
+        
+        
         function doclink(){                
             pid = $('#liste option:selected').val();
             document.location.href="firma4.php?Q={Q}&fid={FID}&pid="+pid;
@@ -153,18 +146,20 @@
     <script>
     $(document).ready(
         function(){
-        $( "#dialogwin" ).dialog({
-          autoOpen: false,
-          show: {
-            effect: "blind",
-            duration: 300
-          },
-          hide: {
-            effect: "explode",
-            duration: 300
-          },
-        });
-        showContact();
+            $( "#dialogwin" ).dialog({
+                autoOpen: false,
+                show: {
+                    effect: "blind",
+                    duration: 300
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 300
+                },
+            });
+               
+        
+            showContact();
     });
     $(function(){
          $('button')
@@ -193,6 +188,22 @@
          .click(function( event ) {
               event.preventDefault();
          });
+         $( "#vcard" ).button().click(function (){
+            pid = $('#liste option:selected').val();
+            document.location.href="vcardexp.php?Q={Q}&pid="+pid;
+         }); 
+         $( "edit_contact" ).button().click(function(){                
+            pid = $('#liste option:selected').val();
+            document.location.href="personen3.php?id="+pid+"&edit="+ed+"&Quelle={Q}&fid={FID}";
+        });
+        $( "new_contact" ).button().click(function(){                
+            document.location.href="personen3.php?edit="+ed+"&Quelle={Q}&fid={FID}";
+        });
+        $( "from_list" ).button().click(function(){                
+            pid = $('#liste option:selected').val();
+            //ToDo getData.php?tab=3&fid={FID}&Quelle={Q}
+            document.location.href="personen1.php?fid={FID}&Quelle={Q}";
+        });
     });
 
     </script>
@@ -255,11 +266,11 @@
         <div style="position:absolute;top:20em; left:0em; width:45em;  text-align:left; border-bottom: 0px;">
             &nbsp;<span id="cp_privatphone"></span> <span id="cp_privatemail"></span><br />
              <hr width="100%">
-                &nbsp;<input type='submit' value='VCard' onClick="vcard()" >
+                &nbsp;<button id="vcard">VCard</button>
                 <b>.:Contacts:.:</b> 
-                <input type='submit' value='{Edit}' onClick="cedit(1)" >
-                <input type='submit' value='.:keyin:.' onClick="cedit(0)" >
-                <input type='submit' value='.:fromList:.' onClick="sellist()">
+                <button id="edit_contact">{Edit}</button>
+                <button id="new_contact">.:keyin:.</button>
+                <button id="from_list">.:fromList:.</button>
             <hr>
             <span id="cp_stichwort1" class="klein fett" style="width:45em; padding-left:1em;"></span><br />
             <span id="cp_notes" class="klein" style="width:45em; padding-left:1em;"></span>

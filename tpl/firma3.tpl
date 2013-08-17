@@ -1,3 +1,6 @@
+    {JQUERY}
+{JQUERYUI}
+{THEME}	
 	<script language="JavaScript">
 	<!--
 	function showM (month) {

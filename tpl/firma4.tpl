@@ -1,4 +1,6 @@
-
+{JQUERY}
+{JQUERYUI}
+{THEME}
     <script type="text/javascript" src="{CRMURL}inc/dokument.js"></script>
 
     <script language="JavaScript">
